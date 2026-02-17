@@ -6,16 +6,9 @@ import { surfaceTokens } from "../../theme/theme";
 import AnimatedText from "./AnimatedText";
 
 /**
- * Hero Section — The first impression.
- *
- * 1. AnimatedText types out the greeting + role lines
- * 2. Once typing finishes, tagline + stats fade in via Framer Motion
- *
- * Desktop (md+): Two-column CSS Grid — content left, portrait right
- * Mobile (<md): Single column, portrait hidden, compact stats
- *
- * Uses CSS Grid (gap-based) instead of MUI Grid to avoid
- * the negative-margin bleed issue on mobile viewports.
+ * Hero Section — Animated intro with typing effect and synchronized portrait slide-in.
+ * Desktop: Two-column layout (content left, portrait right)
+ * Mobile: Single column, portrait hidden
  */
 
 const fadeInVariants = {

@@ -11,11 +11,6 @@ import type {
 
 /**
  * Single source of truth for all portfolio content.
- *
- * Why a separate data file?
- * - Easy to update content without touching component logic
- * - Clean separation of concerns
- * - Could later be swapped for a CMS or API fetch
  */
 
 /* ─── Navigation ─── */

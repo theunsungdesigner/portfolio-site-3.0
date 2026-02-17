@@ -10,24 +10,11 @@ import Footer from "./components/Layout/Footer";
 import { surfaceTokens } from "./theme/theme";
 
 /**
- * App — Root layout component.
- *
- * Architecture: ONE centered Container wraps all sections.
- * Individual sections handle vertical spacing only.
- * This prevents Grid negative-margin bleed on mobile.
- *
- * Sections ordered per the design brief:
- * 1. Hero (full viewport height on desktop, auto on mobile)
- * 2. Case Studies / Selected Work
- * 3. About (with testimonials)
- * 4. Tech Stack
- * 5. Archive (personal projects)
- * 6. Contact
+ * App — Root layout component with centralized Container.
+ * Sections ordered: Hero → Case Studies → About → Tech Stack → Archive → Contact
  *
  * TODO: Consider adding a "Process / Philosophy" section
- * (marked as optional in the design brief).
- *
- * TODO: Add scroll-to-top button for long page navigation.
+ * TODO: Add scroll-to-top button for long page navigation
  */
 
 export default function App() {
