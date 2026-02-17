@@ -30,6 +30,13 @@ This portfolio site serves as a comprehensive showcase for Jonathon Wilson's sof
 - **ESLint** — Code quality and consistency
 - **TypeScript Compiler** — Type checking
 
+## Screen Shots ##
+<img width="1210" height="760" alt="image" src="https://github.com/user-attachments/assets/87218e83-bffe-4c5f-9f5b-e479d6f268ca" />
+
+<img width="1065" height="759" alt="image" src="https://github.com/user-attachments/assets/98f74d68-ec22-46af-80a3-270f18c087a0" />
+
+
+
 ## Project Structure
 
 ```
