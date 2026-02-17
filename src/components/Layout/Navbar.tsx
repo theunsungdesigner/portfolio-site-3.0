@@ -92,7 +92,7 @@ export default function Navbar() {
                     color: "text.secondary",
                     fontSize: "1rem",
                     "&:hover": {
-                      color: "text.primary",
+                      color: "primary.main",
                       backgroundColor: "transparent",
                     },
                   }}
