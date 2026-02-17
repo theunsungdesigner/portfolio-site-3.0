@@ -40,18 +40,18 @@ export default function CaseStudyCard({ study, index }: CaseStudyCardProps) {
       >
         {/* Terminal Command — Visual Hook */}
         <Box
-          sx={{
+          sx={(theme) => ({
             backgroundColor: surfaceTokens.deepest,
             borderRadius: 1,
             px: 2,
             py: 1,
             mb: 3,
-            fontFamily: "'Space Mono', monospace",
+            ...theme.typography.mono,
             fontSize: { xs: "0.7rem", md: "0.8rem" },
             color: "primary.main",
             overflowX: "auto",
             wordBreak: "break-word",
-          }}
+          })}
         >
           {study.terminalCommand}
         </Box>
@@ -86,7 +86,6 @@ export default function CaseStudyCard({ study, index }: CaseStudyCardProps) {
             variant="caption"
             component="p"
             sx={{
-              fontFamily: "'Space Mono', monospace",
               color: "primary.main",
               mb: 1,
             }}

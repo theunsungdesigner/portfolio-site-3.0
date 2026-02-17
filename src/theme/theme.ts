@@ -34,6 +34,26 @@ const text = {
   low: "rgba(255, 255, 255, 0.38)", // Labels, metadata, secondary
 } as const;
 
+/* ─── Font Families (DRY) ─── */
+const fonts = {
+  sans: "'Space Grotesk', sans-serif",
+  mono: "'Space Mono', monospace",
+} as const;
+
+/* ─── Animation Timing Constants ─── */
+export const animations = {
+  duration: {
+    fast: 200,
+    normal: 400,
+    slow: 600,
+  },
+  easing: {
+    standard: "ease",
+    inOut: "ease-in-out",
+    out: "ease-out",
+  },
+} as const;
+
 const theme = createTheme({
   palette: {
     mode: "dark",
@@ -54,57 +74,51 @@ const theme = createTheme({
   },
 
   typography: {
-    fontFamily: "'Space Grotesk', sans-serif",
+    fontFamily: fonts.sans,
 
     h1: {
-      fontFamily: "'Space Grotesk', sans-serif",
       fontWeight: 700,
       fontSize: "clamp(2.5rem, 5vw, 4rem)",
       lineHeight: 1.1,
       color: text.high,
     },
     h2: {
-      fontFamily: "'Space Grotesk', sans-serif",
       fontWeight: 600,
       fontSize: "clamp(1.75rem, 3.5vw, 2.5rem)",
       lineHeight: 1.2,
       color: text.high,
     },
     h3: {
-      fontFamily: "'Space Grotesk', sans-serif",
       fontWeight: 600,
       fontSize: "clamp(1.25rem, 2.5vw, 1.75rem)",
       lineHeight: 1.3,
       color: text.high,
     },
     h4: {
-      fontFamily: "'Space Grotesk', sans-serif",
       fontWeight: 500,
       fontSize: "1.25rem",
       lineHeight: 1.4,
       color: text.high,
     },
     body1: {
-      fontFamily: "'Space Grotesk', sans-serif",
       fontSize: "1rem",
       lineHeight: 1.7,
       color: text.medium,
     },
     body2: {
-      fontFamily: "'Space Grotesk', sans-serif",
       fontSize: "0.875rem",
       lineHeight: 1.6,
       color: text.medium,
     },
     /* Space Mono for code/terminal/metadata contexts */
     caption: {
-      fontFamily: "'Space Mono', monospace",
+      fontFamily: fonts.mono,
       fontSize: "0.75rem",
       lineHeight: 1.5,
       color: text.low,
     },
     overline: {
-      fontFamily: "'Space Mono', monospace",
+      fontFamily: fonts.mono,
       fontSize: "0.75rem",
       fontWeight: 700,
       letterSpacing: "0.15em",
@@ -112,9 +126,22 @@ const theme = createTheme({
       color: accent.main,
     },
     button: {
-      fontFamily: "'Space Grotesk', sans-serif",
       fontWeight: 600,
       textTransform: "none",
+    },
+    /**
+     * Custom 'mono' variant for general monospace usage.
+     * Use this for logos, terminal text, stats, and technical labels.
+     *
+     * Usage: <Typography variant="mono">...</Typography>
+     * or sx={{ ...theme.typography.mono }}
+     */
+    mono: {
+      fontFamily: fonts.mono,
+      fontSize: "1rem",
+      lineHeight: 1.5,
+      color: text.high,
+      letterSpacing: "0.02em",
     },
   },
 
@@ -168,7 +195,7 @@ const theme = createTheme({
     MuiChip: {
       styleOverrides: {
         root: {
-          fontFamily: "'Space Mono', monospace",
+          fontFamily: fonts.mono,
           fontSize: "0.75rem",
         },
       },
@@ -185,9 +212,27 @@ const theme = createTheme({
 });
 
 /**
- * Export surface tokens for direct use in components
- * that need tonal elevation beyond what MUI theme provides.
+ * Named exports for direct use in components:
+ * - surfaceTokens: Color tokens for tonal elevation
+ * - animations: Timing and easing constants for consistent motion
  */
 export const surfaceTokens = surfaces;
 
 export default theme;
+
+/* ─── TypeScript Module Augmentation ─── */
+declare module "@mui/material/styles" {
+  interface TypographyVariants {
+    mono: React.CSSProperties;
+  }
+
+  interface TypographyVariantsOptions {
+    mono?: React.CSSProperties;
+  }
+}
+
+declare module "@mui/material/Typography" {
+  interface TypographyPropsVariantOverrides {
+    mono: true;
+  }
+}

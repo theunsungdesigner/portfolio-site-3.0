@@ -83,7 +83,6 @@ export default function About() {
                   variant="caption"
                   component="p"
                   sx={{
-                    fontFamily: "'Space Mono', monospace",
                     color: "primary.main",
                   }}
                 >

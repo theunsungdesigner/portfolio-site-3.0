@@ -25,11 +25,7 @@ export const navItems: NavItem[] = [
 
 /* ─── Hero ─── */
 export const heroData: HeroData = {
-  animatedLines: [
-    "Hello, I'm",
-    "Jonathon Wilson",
-    "Software Engineer",
-  ],
+  animatedLines: ["Hello, I'm", "Jonathon Wilson", "Software Engineer"],
   name: "Jonathon Wilson",
   title: "Senior Software Engineer",
   tagline:
@@ -62,7 +58,13 @@ export const caseStudies: CaseStudy[] = [
       "Provided real-time DORA metrics to engineering leadership",
       "Integrated across ServiceNow, GitHub Actions, and BigQuery",
     ],
-    techStack: ["Go", "BigQuery", "ServiceNow API", "GitHub Actions", "Cloud Run"],
+    techStack: [
+      "Go",
+      "BigQuery",
+      "ServiceNow API",
+      "GitHub Actions",
+      "Cloud Run",
+    ],
     /** TODO: Add GitHub URL if repo is public */
     /** TODO: Add screenshot once assets are provided */
   },
@@ -128,7 +130,8 @@ export const archiveProjects: ArchiveProject[] = [
   {
     id: "artisan-music",
     title: "Artisan Music",
-    description: "Fully responsive landing page built with vanilla JavaScript and jQuery.",
+    description:
+      "Fully responsive landing page built with vanilla JavaScript and jQuery.",
     techStack: ["JavaScript", "jQuery", "HTML/CSS"],
     githubUrl: "https://github.com/theunsungdesigner/artisan-music",
     liveUrl: "https://aritsan-music.netlify.com/",
@@ -291,7 +294,8 @@ export const testimonials: Testimonial[] = [
 /* ─── Contact ─── */
 export const contactData: ContactData = {
   heading: "Let's Connect",
-  subtext: "Open to conversations about platform engineering, system design, and new opportunities.",
+  subtext:
+    "Open to conversations about platform engineering, system design, and new opportunities.",
   email: "jonathon.brandon.wilson@gmail.com",
   socialLinks: [
     {

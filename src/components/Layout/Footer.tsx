@@ -39,10 +39,7 @@ export default function Footer() {
             gap: 2,
           }}
         >
-          <Typography
-            variant="caption"
-            sx={{ fontFamily: "'Space Mono', monospace" }}
-          >
+          <Typography variant="caption">
             &copy; {currentYear} Jonathon Wilson. Built with React + MUI.
           </Typography>
 

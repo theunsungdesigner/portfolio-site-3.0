@@ -104,7 +104,7 @@ export default function Hero() {
                       <Typography
                         component="span"
                         sx={{
-                          fontFamily: "'Space Mono', monospace",
+                          ...theme.typography.mono,
                           fontWeight: 700,
                           color: "primary.main",
                           display: "block",

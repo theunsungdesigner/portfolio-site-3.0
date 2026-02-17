@@ -66,11 +66,10 @@ export default function Navbar() {
         >
           {/* Logo / Name */}
           <Typography
-            variant="h4"
+            variant="mono"
             component="a"
             onClick={() => handleNavClick("hero")}
             sx={{
-              fontFamily: "'Space Mono', monospace",
               fontSize: { xs: "0.9rem", md: "1rem" },
               cursor: "pointer",
               color: "primary.main",
@@ -150,7 +149,7 @@ export default function Navbar() {
                 <ListItemText
                   primary={item.label}
                   primaryTypographyProps={{
-                    fontFamily: "'Space Mono', monospace",
+                    variant: "mono",
                     fontSize: "1.1rem",
                     color: "text.secondary",
                   }}

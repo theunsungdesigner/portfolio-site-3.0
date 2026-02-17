@@ -16,6 +16,7 @@ This portfolio site serves as a comprehensive showcase for Jonathon Wilson's sof
 ## Technology Stack
 
 ### Frontend
+
 - **React 19** — Modern UI library with concurrent rendering
 - **TypeScript** — Type-safe component development
 - **Vite 6** — Fast build tooling and dev server
@@ -23,10 +24,12 @@ This portfolio site serves as a comprehensive showcase for Jonathon Wilson's sof
 - **Framer Motion 11** — Smooth, production-grade animations
 
 ### Styling & Animation
+
 - **Emotion** — CSS-in-JS for styled components
 - **Framer Motion** — Complex motion graphics and transitions
 
 ### Development
+
 - **ESLint** — Code quality and consistency
 - **TypeScript Compiler** — Type checking
 
@@ -58,10 +61,12 @@ src/
 ## Getting Started
 
 ### Prerequisites
+
 - Node.js 18+
 - npm or yarn
 
 ### Installation
+
 ```bash
 git clone https://github.com/theunsungdesigner/portfolio-site-3.0.git
 cd portfolio-site-3.0
@@ -69,18 +74,23 @@ npm install
 ```
 
 ### Development
+
 ```bash
 npm run dev
 ```
+
 Opens at `http://localhost:5173` with hot module reloading.
 
 ### Build for Production
+
 ```bash
 npm run build
 ```
+
 Generates optimized bundle in the `dist/` directory.
 
 ### Lint Code
+
 ```bash
 npm lint
 ```
@@ -88,6 +98,7 @@ npm lint
 ## Design Philosophy
 
 This portfolio emphasizes:
+
 - **Elegant Motion** — Framer Motion animations create smooth, intentional transitions
 - **Typography & Hierarchy** — Clear visual structure with Material-UI tokens
 - **Responsive Design** — Mobile-first approach, optimized for all screen sizes
@@ -110,7 +121,7 @@ Deploy the `dist/` folder to your hosting provider (Vercel, Netlify, GitHub Page
 - **Synchronized Animations** — Text and portrait animations render in harmony
 - **Fully Responsive** — Optimized experience from mobile to desktop
 - **Type-Safe** — Full TypeScript coverage for reliability
-- **Performance-Optimized** — Vite bundling and production builds  
+- **Performance-Optimized** — Vite bundling and production builds
 
 ---
 
