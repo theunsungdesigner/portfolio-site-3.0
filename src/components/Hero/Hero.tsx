@@ -27,6 +27,21 @@ const staggerContainer = {
   },
 };
 
+/**
+ * Portrait is always mounted on desktop so the browser can preload the image
+ * during the typing animation (~8-12s). Visibility is controlled via Framer
+ * Motion variants rather than conditional rendering.
+ * This prevents both a late image fetch and a grid layout reflow.
+ */
+const portraitVariants = {
+  hidden: { opacity: 0, scale: 0.95 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: { duration: 0.6, ease: "easeOut" },
+  },
+};
+
 export default function Hero() {
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
@@ -129,12 +144,17 @@ export default function Hero() {
           )}
         </Box>
 
-        {/* Portrait — desktop only */}
-        {isDesktop && typingDone && (
+        {/*
+         * Portrait — desktop only.
+         * Always mounted on desktop so the browser can begin fetching the
+         * image during the typing animation. Framer Motion controls visibility;
+         * no conditional rendering means no late image fetch or grid reflow.
+         */}
+        {isDesktop && (
           <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6 }}
+            variants={portraitVariants}
+            initial="hidden"
+            animate={typingDone ? "visible" : "hidden"}
           >
             {/**
              * TODO: Replace with stylized portrait photo once asset is provided.
@@ -153,7 +173,8 @@ export default function Hero() {
             >
               <img
                 src="/assets/images/gemini-me-outside.png"
-                alt="Jonathon Wilson"
+                alt="Jonathon Wilson, software engineer"
+                fetchPriority="high"
                 style={{
                   width: "100%",
                   height: "100%",
