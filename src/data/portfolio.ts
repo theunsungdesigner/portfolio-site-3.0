@@ -8,11 +8,11 @@ import type {
   Testimonial,
   ContactData,
 } from "../types";
-
+ 
 /**
  * Single source of truth for all portfolio content.
  */
-
+ 
 /* ─── Navigation ─── */
 export const navItems: NavItem[] = [
   { label: "Home", sectionId: "hero" },
@@ -22,25 +22,24 @@ export const navItems: NavItem[] = [
   { label: "Archive", sectionId: "archive" },
   { label: "Contact", sectionId: "contact" },
 ];
-
+ 
 /* ─── Hero ─── */
 export const heroData: HeroData = {
-  animatedLines: ["Hello, I'm", "Jonathon Wilson", "Software Engineer"],
+  animatedLines: ["Hello, I'm", "Jonathon Wilson", "Platform Engineer"],
   name: "Jonathon Wilson",
-  title: "Senior Software Engineer",
+  title: "Software Engineer",
   tagline:
-    "Building reliable distributed systems at enterprise scale. " +
-    "Design degree holder turned software engineer — I bring visual " +
-    "intentionality to backend architecture.",
+    "Full-stack engineer with 6+ years building GCP-native platforms at enterprise scale. " +
+    "Design degree holder — because good systems thinking and good visual thinking " +
+    "aren't that different.",
   stats: [
     { value: "6+", label: "Years Engineering" },
-    { value: "10+", label: "Enterprise Platforms" },
+    { value: "1K+", label: "Devs on DORA Platform" },
     { value: "100K+", label: "Users Served" },
-    /** TODO: Update these stats with accurate current numbers */
-    { value: "99.9%", label: "Uptime SLA" },
+    { value: "2", label: "Flagship Platforms Built" },
   ],
 };
-
+ 
 /* ─── Case Studies ─── */
 export const caseStudies: CaseStudy[] = [
   {
@@ -113,7 +112,7 @@ export const caseStudies: CaseStudy[] = [
     /** TODO: Add specifics once cleared for public sharing */
   },
 ];
-
+ 
 /* ─── Archive (Legacy Personal Projects) ─── */
 export const archiveProjects: ArchiveProject[] = [
   {
@@ -149,7 +148,7 @@ export const archiveProjects: ArchiveProject[] = [
     isLiveLinkBroken: true,
   },
 ];
-
+ 
 /* ─── Tech Stack ─── */
 export const techCategories: TechCategory[] = [
   {
@@ -248,7 +247,7 @@ export const techCategories: TechCategory[] = [
     ],
   },
 ];
-
+ 
 /* ─── About ─── */
 export const aboutData: AboutData = {
   heading: "From Pixels to Platforms",
@@ -267,7 +266,7 @@ export const aboutData: AboutData = {
       "feel simple.",
   ],
 };
-
+ 
 /* ─── Testimonials ─── */
 export const testimonials: Testimonial[] = [
   {
@@ -290,7 +289,7 @@ export const testimonials: Testimonial[] = [
   },
   /** TODO: Add more recent testimonials from enterprise colleagues */
 ];
-
+ 
 /* ─── Contact ─── */
 export const contactData: ContactData = {
   heading: "Let's Connect",

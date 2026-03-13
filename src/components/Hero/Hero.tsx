@@ -11,11 +11,14 @@ import AnimatedText from "./AnimatedText";
  * Mobile: Single column, portrait hidden
  */
 
+const EASE = [0.25, 0.46, 0.45, 0.94] as const;
+
 const fadeInVariants = {
-  hidden: { opacity: 0 },
+  hidden: { opacity: 0, y: 10 },
   visible: {
     opacity: 1,
-    transition: { duration: 0.6, ease: "easeOut" },
+    y: 0,
+    transition: { duration: 0.9, ease: EASE },
   },
 };
 
@@ -23,22 +26,15 @@ const staggerContainer = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    transition: { delayChildren: 0.5, staggerChildren: 0.08 },
+    transition: { delayChildren: 0.2, staggerChildren: 0.15 },
   },
 };
 
-/**
- * Portrait is always mounted on desktop so the browser can preload the image
- * during the typing animation (~8-12s). Visibility is controlled via Framer
- * Motion variants rather than conditional rendering.
- * This prevents both a late image fetch and a grid layout reflow.
- */
 const portraitVariants = {
-  hidden: { opacity: 0, scale: 0.95 },
+  hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    scale: 1,
-    transition: { duration: 0.6, ease: "easeOut" },
+    transition: { duration: 0.9, ease: EASE },
   },
 };
 
@@ -84,12 +80,12 @@ export default function Hero() {
           />
 
           {/* Tagline + Stats — fade in after typing completes */}
-          {typingDone && (
-            <motion.div
-              variants={staggerContainer}
-              initial="hidden"
-              animate="visible"
-            >
+          <motion.div
+            variants={staggerContainer}
+            initial="hidden"
+            animate={typingDone ? "visible" : "hidden"}
+            style={{ pointerEvents: typingDone ? "auto" : "none" }}
+          >
               <motion.div variants={fadeInVariants}>
                 <Typography
                   variant="body1"
@@ -140,8 +136,7 @@ export default function Hero() {
                   ))}
                 </Box>
               </motion.div>
-            </motion.div>
-          )}
+          </motion.div>
         </Box>
 
         {/*
@@ -172,7 +167,7 @@ export default function Hero() {
               }}
             >
               <img
-                src="/assets/images/gemini-me-outside.png"
+                src="/assets/images/me.jpg"
                 alt="Jonathon Wilson, software engineer"
                 fetchPriority="high"
                 style={{

@@ -20,7 +20,7 @@ import type { Variant } from "@mui/material/styles/createTypography";
  * `onComplete` fires once (first cycle) to unlock downstream content.
  */
 
-type Phase = "pre-blink" | "typing" | "post-blink" | "clearing";
+type Phase = "pre-blink" | "typing" | "post-blink" | "clearing" | "done";
 
 interface AnimatedTextProps {
   lines: string[];
@@ -39,7 +39,6 @@ interface AnimatedTextProps {
 }
 
 const BLINK_CYCLE_MS = 1000;
-const HOLD_AFTER_TYPING_MS = 3000;
 
 export default function AnimatedText({
   lines,
@@ -99,18 +98,10 @@ export default function AnimatedText({
     if (phase !== "post-blink") return;
 
     const timer = setTimeout(() => {
-      setPhase("clearing");
-    }, BLINK_CYCLE_MS * 2 + HOLD_AFTER_TYPING_MS);
+      setPhase("done");
+    }, BLINK_CYCLE_MS * 2);
 
     return () => clearTimeout(timer);
-  }, [phase]);
-
-  /* ─── Phase: Clearing ─── */
-  useEffect(() => {
-    if (phase !== "clearing") return;
-    setCharIndex(0);
-    setShowHighlight(false);
-    setPhase("pre-blink");
   }, [phase]);
 
   /* ─── Helpers ─── */
@@ -145,7 +136,7 @@ export default function AnimatedText({
   }, [charIndex, lines]);
 
   const activeLineIndex = getActiveLineIndex();
-  const showCursor = phase !== "clearing";
+  const showCursor = phase !== "clearing" && phase !== "done";
 
   /**
    * Renders a visible text string with optional highlight.
